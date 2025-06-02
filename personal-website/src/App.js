@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  render(){
+    return(
+      <div className = "App">
+        <div className = "Spacer"></div>
+        <div className = "Box">
+          <div className = "header">About Me</div>
+          <div className = "content">My name is Douglas Tavolette, and I'm currently studying Software Engineering at Rochester Institute of Technology. 
+            I've finished 2 years of classes, and I've worked with Java, Python, SQL, and JavaScript, alongside other languages at RIT. 
+            You can see some of the projects I've worked on both in and out of class on my {" "}
+            <a href = "https://github.com/Doug-Tavolette" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            . 
+            </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
