@@ -1,7 +1,26 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState, Component} from 'react';
 import './App.css';
 
 class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {data: []};
+  }
+
+  fetchData = () => {
+    fetch('http://localhost:8080/test')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch clubs');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Personal data successfully retrieved")
+        //map data from api to a JS object so that it can be added to the state
+        const formattedData = data.map()
+      });
+  };
   render(){
     return(
       <div className = "App">
@@ -14,7 +33,7 @@ class App extends React.Component{
             <a href = "https://github.com/Doug-Tavolette" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            . 
+            .
             </div>
         </div>
       </div>

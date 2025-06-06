@@ -1,2 +1,3 @@
-src\main\java\server\InitialCommit.class
-src\main\java\server\java\App.class
+server\InitialCommit.class
+server\java\API\api.class
+server\java\App.class
