@@ -4,7 +4,7 @@ import './App.css';
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {data: []};
+    this.state = {data: {}};
   }
 
   fetchData = () => {
@@ -18,9 +18,20 @@ class App extends React.Component{
       .then((data) => {
         console.log("Personal data successfully retrieved")
         //map data from api to a JS object so that it can be added to the state
-        const formattedData = data.map()
+        // const formattedData = data.map((item) => ({
+        //   key: item[0],
+        //   value: item[1]
+        // }))
+        this.setState({data});
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
       });
-  };
+      };
+
+  componentDidMount(){
+    this.fetchData();
+  }
   render(){
     return(
       <div className = "App">
