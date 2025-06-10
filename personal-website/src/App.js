@@ -8,25 +8,21 @@ class App extends React.Component{
   }
 
   fetchData = () => {
-    fetch('http://localhost:8080/test')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch clubs');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Personal data successfully retrieved")
-        //map data from api to a JS object so that it can be added to the state
-        // const formattedData = data.map((item) => ({
-        //   key: item[0],
-        //   value: item[1]
-        // }))
-        this.setState({data});
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-      });
+    fetch("http://localhost:8080/api/steam")
+    // fetch('http://localhost:8080/api/test')
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error('Failed to fetch clubs');
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log("Personal data successfully retrieved")
+    //     this.setState({data});
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching data: ", error);
+    //   });
       };
 
   componentDidMount(){
