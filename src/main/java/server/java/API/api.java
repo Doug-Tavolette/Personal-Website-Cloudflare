@@ -18,18 +18,23 @@ public class api {
         return data;
     }
 
-    @GetMapping("/api/steam")
-    public String getSteamInfo(){
-        String steamApiKey = "32EC1DBB94DEDDB4160EDEF4D8CCD357";
+    @GetMapping("/api/steam")`
+    public ResponseEntity<String> getSteamInfo(){
+        String steamApiKey = "";
         String steamId = "76561199508054671";
 
-        String url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/"
-                   + "?key=" + steamApiKey + "&steamids=" + steamId;
+        String url = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/"
+                   + "?key=" + steamApiKey + "&steamid=" + steamId;
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        
+        return response;  // Or parse to JSON if preferred
+    }
 
-        return response.getBody();  // Or parse to JSON if preferred
+    @GetMapping("/api/github")
+    public ResponseEntity<String> getGitHubInfo(){
+        
     }
 }
 
