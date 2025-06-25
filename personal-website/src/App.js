@@ -8,7 +8,27 @@ class App extends React.Component{
   }
 
   fetchData = () => {
-    fetch("http://localhost:8080/api/steam")
+    const gitHubData = {};
+    // fetch("http://localhost:8080/api/steam")
+    fetch("https://api.github.com/users/DouglasTavolette/events", {
+        headers: {
+          Authorization: "token ",
+        },
+        })
+        .then(res => res.json())
+        .then(data => Object.assign(gitHubData, data))
+        .catch(err => console.error("Fetch error:", err));
+
+        // for (var i = 0; i < gitHubData.length; i++){
+        //   gitHubData[i].type ? "PushEvent" : this.setState();
+        // }
+
+
+        // for item in data:
+        //   if item.type == "PushEvent":
+        //     this.setState(item.payload.commits[0].message)
+        //payload.commits[0].message
+
     // fetch('http://localhost:8080/api/test')
     //   .then((response) => {
     //     if (!response.ok) {
@@ -29,6 +49,7 @@ class App extends React.Component{
     this.fetchData();
   }
   render(){
+    const {data} = this.state;
     return(
       <div className = "App">
         <div className = "Spacer"></div>
@@ -42,6 +63,8 @@ class App extends React.Component{
             </a>
             .
             </div>
+          <h1>GitHub User Info</h1>
+          <pre>{JSON.stringify(data, null, 2)}</pre> {/* This prints the whole state */}
         </div>
       </div>
     )

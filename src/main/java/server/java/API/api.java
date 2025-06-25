@@ -18,7 +18,7 @@ public class api {
         return data;
     }
 
-    @GetMapping("/api/steam")`
+    @GetMapping("/api/steam")
     public ResponseEntity<String> getSteamInfo(){
         String steamApiKey = "";
         String steamId = "76561199508054671";
@@ -32,9 +32,9 @@ public class api {
         return response;  // Or parse to JSON if preferred
     }
 
-    @GetMapping("/api/github")
-    public ResponseEntity<String> getGitHubInfo(){
+    // @GetMapping("/api/github")
+    // public ResponseEntity<String> getGitHubInfo(){
         
-    }
+    // }
 }
 
